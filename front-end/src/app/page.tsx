@@ -1,35 +1,13 @@
 "use client";
 import { useEffect } from "react";
+import { Card } from "./components/Card";
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import AdbIcon from '@mui/icons-material/Adb';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export default function Home() {
-
-
-const pages = ['Нүүр', 'ХООЛНЫ ЦЭС', 'ХҮРГЭЛТИЙН БҮС'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:8000 ");
@@ -42,63 +20,60 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
   useEffect(() => {
     fetchData();
   }, []);
+const itemData = [
+  {
+    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    title: 'Breakfast',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+    title: 'Burger',
+  },]
 
   return (
-      <Container maxWidth="xl" sx={{ color: 'inherit',}}>
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            FOODDELIVERY
-          </Typography>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-                a
-              </Button>
-            ))}
-          </Box>
-          <Stack>
-           <IconButton color="primary" aria-label="add to shopping cart">
-              <AddShoppingCartIcon />
-           </IconButton>
-          </Stack>
-        </Toolbar>
-      </Container>
+     <div >
+          <Stack direction="row" spacing={20} ml={20} mt={5}>
+      <Button color="success">Нүүр</Button>
+       <Button >ХООЛНЫ ЦЭС</Button>
+        <Button>ХҮРГЭЛТИЙН БҮС</Button>
+      
+    </Stack>
+      {/* <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+  {itemData.map((item) => (
+    <ImageListItem key={item.img}>
+      <img
+        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+        alt={item.title}
+        loading="lazy"
+      />  <Card img="" title="Breakfast" price={19800}/>
+    </ImageListItem>
+  ))}
+</ImageList>
+      
+         <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+  {itemData.map((item) => (
+    <ImageListItem key={item.img}>
+      <img
+        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+        alt={item.title}
+        loading="lazy"
+      />  <Card img="" title="Burger" price={14800}/>
+    </ImageListItem>
+  ))}
+</ImageList>
+   <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+  {itemData.map((item) => (
+    <ImageListItem key={item.img}>
+      <img
+        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+        alt={item.title}
+        loading="lazy"
+      />  <Card img="" title="Burger" price={14800}/>
+    </ImageListItem>
+  ))}
+</ImageList> */}
+     </div>
   );}
