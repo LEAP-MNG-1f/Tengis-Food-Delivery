@@ -79,7 +79,7 @@ export default function Home() {
           ))}
         </Box>
         <Stack>
-          <IconButton color="black" aria-label="add to shopping cart" sx={{ ml: -10 }}>
+          <IconButton  aria-label="add to shopping cart" sx={{ ml: -10 }}>
             <AddShoppingCartIcon />
           </IconButton>
         </Stack>
