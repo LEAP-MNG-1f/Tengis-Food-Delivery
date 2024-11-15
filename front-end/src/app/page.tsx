@@ -90,6 +90,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
+                a
               </Button>
             ))}
           </Box>
