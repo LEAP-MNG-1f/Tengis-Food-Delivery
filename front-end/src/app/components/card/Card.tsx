@@ -20,10 +20,8 @@ export default function  Carda () {
     fetchData();
   }, []);
   return (
-    <div className="w-full h-full flex flex-col justify-center">
-  
-    
-     <div className="bg-[#18BA51] w-full h-[788px] mt-10 flex items-center justify-between " style={{
+    <div className="w-full h-full">
+     <div className="bg-[#18BA51] w-full h-[788px] mt-10 flex items-center  justify-center gap-[250px]" style={{
         backgroundImage:'url(/food.png)',
         backgroundPosition:'center',
         backgroundSize:'cover'
@@ -35,7 +33,7 @@ export default function  Carda () {
       <div className=" flex items-end pr-40"><img src="./budaa.png" className="w-[588px] h-[438px]" /></div>
      </div>
 
-     <div className="mt-10 flex justify-center gap-10">
+     <div className="mt-10 flex justify-center gap-16">
         <Card sx={{ maxWidth:264,  height:155 }}>
       <CardContent>
         <button ><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,6 +135,7 @@ export default function  Carda () {
 <div className="flex gap-10 justify-center">
         <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
   <img src="./eeg.png" alt="" />
+  
       <CardContent>
         <h1 className="font-bold"> Өглөөний хоол</h1>
         <div className="flex gap-3">

@@ -1,13 +1,14 @@
 "use client";
 
-import Carda from "./components/Card";
+import Carda from "./components/card/Card";
 import Stack from '@mui/material/Stack';
 import Link from "next/link";
+import OpenDilog from "./components/card/OpenDilog";
 
 export default function Home() {
   return (
     <div>
-         <div className="flex justify-between ml-32">
+         <div className="flex justify-center gap-[600px]">
           <Stack direction="row" spacing={5} ml={5} mt={5}>
       <svg width="41" className="mt-10" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9.85882 9.53921L5.65369 17.41C5.12892 18.3951 4.86597 19.4762 4.86597 20.5587C4.86597 21.6414 5.12892 22.7224
@@ -19,9 +20,15 @@ export default function Home() {
          28.9047 22.658L24.7012 30.5303C24.3137 31.2572 23.5558 31.7104 22.7318 31.7104H22.7302V33.9403H27.197C28.8465 33.9403 30.3621 
           33.0323 31.1374 31.5783L35.3423 23.7075C35.8669 22.7224 36.13 21.6413 36.13 20.5588C36.13 19.4763 35.8669 18.3952 35.3423 17.4101Z" fill="black"/>
         </svg>
+        <Link href={``}>
         <button className="font-bold hover:text-green-400">Нүүр</button>
+        </Link>
+        <Link href={``}>
         <button className="font-bold hover:text-green-400">ХООЛНЫ ЦЭС</button>
+        </Link>
+        <Link href={``}>
         <button className="font-bold hover:text-green-400">ХҮРГЭЛТИЙН БҮС</button>
+        </Link>
   </Stack>
       <div className="flex gap-2 font-bold mt-10 mr-20">
         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +42,7 @@ export default function Home() {
 </div>
 </div>
 <Carda/>
+<OpenDilog/>
    <div className="bg-[#18BA51] w-full h-[545px] mt-10 flex flex-col items-center justify-center " style={{
         backgroundImage:'url(/food.png)',
         backgroundPosition:'center',
@@ -47,12 +55,23 @@ export default function Home() {
 </svg>
 <h1 className="font-bold text-white text-[20px] ">Food Delivery</h1></div> 
 <div className="flex justify-between mt-10 gap-5 font-bold text-white w-[1200px]">
+  <Link href={``}>
   <button>Нүүр</button>
+  </Link>
+  <Link href={``}>
   <button>Холбоо барих</button>
+  </Link>
+  <Link href={``}>
   <button>Хоолны цэс</button>
+  </Link>
+   <Link href={``}>
   <button>Үйлчилгээний нөхцөл</button>
+  </Link>
+   <Link href={``}>
   <button>Хүргэлтийн бүс</button>
+  </Link> <Link href={``}>
   <button>Нууцлалын бодлого</button>
+  </Link>
   </div>
   <div className="flex gap-5 mt-10">
     <Link href={`https://www.facebook.com/`}>
