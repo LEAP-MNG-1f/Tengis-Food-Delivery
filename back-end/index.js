@@ -1,25 +1,20 @@
 import express, { response } from "express"
 import cors from "cors";
-
+import {v2 as cloudinary} from "cloudinary"
 const server = express();
 const PORT = 8000
 
 server.use(cors()); 
-
-server.get("/", (request, response) => {
-  response.send(["Billy", "Dashka", "tugo"]);
-});
-
 server.post("/image-upload", async (request, response)=>{
   try{
     cloudinary.config({
-      cloud_name: "dnpz00ede",
-      api_kye:"175773895774956",
-      api_secret: "_Cy4dGK2gQIgCgSHVVHhhIu4A8",
+      cloud_name: "dwm2mie3c",
+      api_key:"257275265174362",
+      api_secret: "V_k2DSUgZStwgIunis7GTWNraJA",
     });
     
-    const uploadResult = await cloudinary.uploader.upload("./assets");
-    console.log(uploadResult);
+    const uploadResult = await cloudinary.uploader.upload("./asset/budaa.png");
+    response.json(uploadResult)
   }catch(error){
     console.log("cloudinary error", error);
   }
