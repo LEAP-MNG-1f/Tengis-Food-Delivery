@@ -1,30 +1,33 @@
-import express, { response } from "express"
+import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./ConnectDB.js";
+
+dotenv.config();
 
 const server = express();
-const PORT = 8000
+const PORT = 8000;
 
-server.use(cors()); 
+server.use(cors());
 
-server.get("/", (request, response) => {
-  response.send(["Billy", "Dashka", "tugo"]);
-});
-
-server.post("/image-upload", async (request, response)=>{
-  try{
-    cloudinary.config({
-      cloud_name: "dnpz00ede",
-      api_kye:"175773895774956",
-      api_secret: "_Cy4dGK2gQIgCgSHVVHhhIu4A8",
+server.get("/", async (req, response) => {
+  try {
+    const db = await connectDB();
+    const collection = db.collection("users");
+    const results = await collection.findOne({ name: "Ned Stark" });
+    response.json({
+      success: true,
+      data: results,
     });
-    
-    const uploadResult = await cloudinary.uploader.upload("./assets");
-    console.log(uploadResult);
-  }catch(error){
-    console.log("cloudinary error", error);
+  } catch (error) {
+    console.error("Error in GET /:", error);
+    response.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
   }
 });
 
-server.listen(PORT, ()=>{
-    console.log(`http://localhost:${PORT} ajillaj bna`)
+server.listen(PORT, () => {
+  console.log(`http://localhost:${PORT} ajillaj bna`);
 });

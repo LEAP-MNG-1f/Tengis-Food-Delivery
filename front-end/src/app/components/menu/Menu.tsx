@@ -3,12 +3,15 @@ import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
+import Stack from "@mui/material/Stack";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -57,9 +60,9 @@ export default function Menu() {
             <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
               <React.Fragment>
                 <Button onClick={handleClickOpen}>
-                  <img src="./eeg.png" alt="" />
+                  <img src="./eeg.png" alt="" className="" />
                 </Button>
-                <div className="w-[981px] h-[564px]">
+                <div className="">
                   <BootstrapDialog
                     onClose={handleClose}
                     aria-labelledby="customized-dialog-title"
@@ -77,42 +80,54 @@ export default function Menu() {
                     >
                       <CloseIcon />
                     </IconButton>
-                    <DialogContent dividers>
-                      <div className="flex ">
-                        <Typography gutterBottom>
-                          <img
-                            src="./eeg.png"
-                            alt=""
-                            className="w-[500px] h-[500px]"
-                          />
-                        </Typography>
-                        <div className="flex flex-col mt-10 ml-5">
-                          <div>
-                            <h1 className="font-bold text-[28px]">
-                              Main Pizza{" "}
-                            </h1>
-                            <h1 className="text-green-500">34,800₮</h1>
-                          </div>
-                          <div className="mt-5 w-[368px] h-[54px]">
-                            <h1 className="font-bold">Орц</h1>
-                            <h1 className="bg-[#F6F6F6] text-gray-500 mt-5">
-                              Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын
-                              үр{" "}
-                            </h1>
-                          </div>
-                          <div className="mt-20">
-                            <h1 className="font-bold">Тоо</h1>
-                            <Button
-                              variant="contained"
-                              color="success"
-                              className="w-[368px] h-[48px]  text-white"
-                            >
-                              Сагслах
-                            </Button>
-                          </div>
+
+                    <div className="flex w-[981px] h-[500px]">
+                      <Typography gutterBottom>
+                        <img
+                          src="./eeg.png"
+                          alt=""
+                          className=" w-[500px] h-[500px]"
+                        />
+                      </Typography>
+                      <div className="flex flex-col mt-10 ml-5 w-[981px] h-[500px]">
+                        <div>
+                          <h1 className="font-bold text-[28px]">Main Pizza</h1>
+                          <h1 className="text-green-500">34,800₮</h1>
+                        </div>
+                        <div className="mt-5 w-[368px] h-[54px]">
+                          <h1 className="font-bold">Орц</h1>
+                          <h1 className="bg-[#F6F6F6] text-gray-500 mt-5">
+                            Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын
+                            үр
+                          </h1>
+                        </div>
+
+                        <div className="mt-20">
+                          <h1 className="font-bold">Тоо</h1>
+                          <Stack spacing={2}>
+                            <Pagination
+                              count={10}
+                              renderItem={(item) => (
+                                <PaginationItem
+                                  slots={{
+                                    previous: ArrowBackIcon,
+                                    next: ArrowForwardIcon,
+                                  }}
+                                  {...item}
+                                />
+                              )}
+                            />
+                          </Stack>
+                          <Button
+                            variant="contained"
+                            color="success"
+                            className="w-[368px] h-[48px]  text-white"
+                          >
+                            Сагслах
+                          </Button>
                         </div>
                       </div>
-                    </DialogContent>
+                    </div>
                   </BootstrapDialog>
                 </div>
               </React.Fragment>
