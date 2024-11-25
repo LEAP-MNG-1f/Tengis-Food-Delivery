@@ -8,7 +8,7 @@ import { ObjectId } from "mongodb";
 dotenv.config();
 
 const server = express();
-const PORT = 4000;
+const PORT = 8000;
 
 server.use(cors());
 server.use(bodyParser.json());
