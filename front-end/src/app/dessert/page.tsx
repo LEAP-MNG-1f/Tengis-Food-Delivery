@@ -7,7 +7,6 @@ import Dessert from "../components/menu/Dessert";
 export default function soupo() {
   return (
     <div>
-      {" "}
       <div className="flex justify-center gap-[600px]">
         <Stack direction="row" spacing={5} ml={5} mt={5}>
           <svg
