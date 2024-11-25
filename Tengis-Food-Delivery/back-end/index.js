@@ -1,53 +1,88 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import connectDB from "./ConnectDB.js";
-import { v2 as cloudinary } from "cloudinary";
+import connectDb from "./connectDB.js";
+import bodyParser from "body-parser";
+import { ObjectId } from "mongodb";
 
 dotenv.config();
 
 const server = express();
-const PORT = 8000;
+const PORT = 4000;
 
 server.use(cors());
+server.use(bodyParser.json());
 
 server.get("/", async (req, response) => {
-  try {
-    const db = await connectDB();
-    const collection = db.collection("users");
-    const results = await collection.findOne({ name: "Ned Stark" });
-    response.json({
-      success: true,
-      data: results,
-    });
-  } catch (error) {
-    console.error("Error in GET /:", error);
-    response.status(500).json({
-      success: false,
-      message: "Internal Server Error",
-    });
-  }
+  const db = await connectDb();
+
+  let collection = db.collection("movies");
+  let results = await collection.find().limit(10).toArray();
+
+  response.json({
+    succes: true,
+    data: results,
+  });
 });
 
-server.post("/image-upload", async (request, response) => {
-  try {
-    cloudinary.config({
-      cloud_name: "dwm2mie3c",
-      api_key: "257275265174362",
-      api_secret: "V_k2DSUgZStwgIunis7GTWNraJA",
-    });
+server.post("/create-user", async (req, response) => {
+  const db = await connectDb();
 
-    const uploadResult = await cloudinary.uploader.upload("./asset/budaa.png");
-    response.json(uploadResult);
-  } catch (error) {
-    console.log("Cloudinary error", error);
-    response.status(500).json({
-      success: false,
-      message: "Error uploading image",
-    });
-  }
+  const collection = db.collection("test");
+  const result = await collection.insertMany([
+    {
+      name: "Naruto",
+      email: "Naruto@gmail.com",
+    },
+    {
+      name: "Sasuke",
+      email: "Sasuke@gmail.com",
+    },
+    {
+      name: "Sakura",
+      email: "Sakura@gmail.com",
+    },
+  ]);
+
+  response.json({
+    succes: true,
+    data: result,
+  });
+});
+
+server.delete("/delete-user", async (req, response) => {
+  const db = await connectDb();
+
+  const collection = db.collection("test");
+  const result = await collection.deleteOne({
+    _id: new ObjectId("673ff14597d4d83c00f19d8a"),
+  });
+
+  response.json({
+    succes: true,
+    data: result,
+  });
+});
+
+server.put("/update-user", async (req, response) => {
+  const db = await connectDb();
+
+  const collection = db.collection("test");
+  const result = await collection.update(
+    {
+      _id: new ObjectId("673ff2ae2930e49fb1bd8d26"),
+    },
+    {
+      $set: { email: "Saskue@gmail.com" },
+    }
+  );
+
+  response.json({
+    succes: true,
+    data: result,
+  });
 });
 
 server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`server is running on http://localhost:${PORT}`);
 });
