@@ -2,11 +2,12 @@
 
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
-import Dessert from "../components/menu/Dessert";
+import Soup from "../components/menu/soup";
 
 export default function soupo() {
   return (
     <div>
+      {" "}
       <div className="flex justify-center gap-[600px]">
         <Stack direction="row" spacing={5} ml={5} mt={5}>
           <svg
@@ -66,7 +67,7 @@ export default function soupo() {
           <p className="font-bold hover:text-green-400">Сагс</p>
         </div>
       </div>
-      <Dessert />
+      <Soup />
       <div
         className="bg-[#18BA51] w-full h-[545px] mt-10 flex flex-col items-center justify-center "
         style={{

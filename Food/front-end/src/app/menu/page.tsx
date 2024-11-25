@@ -1,12 +1,12 @@
 "use client";
-
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
-import Dessert from "../components/menu/Dessert";
+import Menu from "../components/menu/Menu";
 
-export default function soupo() {
+export default function Menuu() {
   return (
     <div>
+      {" "}
       <div className="flex justify-center gap-[600px]">
         <Stack direction="row" spacing={5} ml={5} mt={5}>
           <svg
@@ -66,7 +66,7 @@ export default function soupo() {
           <p className="font-bold hover:text-green-400">Сагс</p>
         </div>
       </div>
-      <Dessert />
+      <Menu />
       <div
         className="bg-[#18BA51] w-full h-[545px] mt-10 flex flex-col items-center justify-center "
         style={{
