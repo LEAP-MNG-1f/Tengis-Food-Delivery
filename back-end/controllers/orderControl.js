@@ -1,25 +1,45 @@
-import { request, response } from "express";
-import { Order } from "./order";
+import { Order } from "../model/order.js";
 
-const createOrder = async (request, response) => {
-  const result = await Order.create({
-    orderNumber: 1,
-    totalPrice: "215000",
-    customer: "6743f553f7907131039502db",
-  });
+const createOrder = async (req, res) => {
+  try {
+    const result = await Order.create({
+      userID: "6746aa382a034160d556f851",
+      orderNumber: 1,
+      foodIDs: "6746aa382a034160d556f853",
+      totalPrice: "215000",
+      district: "BGD",
+      Khoroo: "7",
+      Apartment: "A17",
+    });
 
-  response.json({
-    succes: true,
-    data: result,
-  });
+    res.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error creating order",
+      error: error.message,
+    });
+  }
 };
 
-const getAllOrders = async (request, response) => {
-  const result = await Order.find().populate("customer");
+const getAllOrders = async (req, res) => {
+  try {
+    const result = await Order.find();
 
-  response.json({
-    succes: true,
-    data: result,
-  });
+    res.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching orders",
+      error: error.message,
+    });
+  }
 };
+
 export { createOrder, getAllOrders };

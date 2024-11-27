@@ -1,6 +1,6 @@
-import { User } from "../users.js";
+import { User } from "../model/users";
 
-const createUser = async (request, response) => {
+const createUser = async (req, res) => {
   try {
     const result = await User.create({
       name: "Tengis",
@@ -9,12 +9,12 @@ const createUser = async (request, response) => {
       phoneNumber: 88664132,
     });
 
-    response.json({
+    res.json({
       success: true,
       data: result,
     });
   } catch (error) {
-    response.status(500).json({
+    res.status(500).json({
       success: false,
       message: "Error creating user",
       error: error.message,
@@ -22,15 +22,15 @@ const createUser = async (request, response) => {
   }
 };
 
-const getAllUsers = async (request, response) => {
+const getAllUsers = async (req, res) => {
   try {
     const result = await User.find().lean();
-    response.json({
+    res.json({
       success: true,
       data: result,
     });
   } catch (error) {
-    response.status(500).json({
+    res.status(500).json({
       success: false,
       message: "Error fetching users",
       error: error.message,
