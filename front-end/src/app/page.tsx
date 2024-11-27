@@ -36,12 +36,7 @@ export default function Home() {
   const list = (anchor: Anchor) => (
     <Box
       sx={{
-        width:
-          anchor === "top"
-            ? "auto"
-            : "600" || anchor === "bottom"
-            ? "auto"
-            : 250,
+        width: "600",
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
