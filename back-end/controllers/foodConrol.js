@@ -1,9 +1,9 @@
-import { Food } from "../model/food";
+import { Food } from "../model/food.js";
 
 const createFood = async (req, res) => {
   try {
     const result = await Food.create({
-      _ID: "6746aa382a034160d556f851",
+      _id: "6746aa382a034160d556f851",
       name: "Tengis",
       image: "pizza.jpg",
       price: 26500,
