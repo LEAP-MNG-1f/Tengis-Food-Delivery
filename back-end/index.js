@@ -5,7 +5,9 @@ import orderRouter from "./router/orderRouter.js";
 import foodRouter from "./router/foodRouter.js";
 import categoryRouter from "./router/categoryRouter.js";
 import userRouter from "./router/userRouter.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 mongoose
   .connect(
     "mongodb+srv://tengisbatbold11:Tengis0808@tengis-food.psict.mongodb.net/food-delivery"
@@ -16,16 +18,17 @@ mongoose
 const server = express();
 const PORT = 4000;
 
-e;
 server.use(cors());
 server.use(express.json());
 
-server.use("/api/users", userRouter);
-server.use("/api/orders", orderRouter);
-server.use("/api/foods", foodRouter);
-server.use("/api/categories", categoryRouter);
+const MAIN_PATH = "/api";
 
+server.use(MAIN_PATH, userRouter);
+server.use(MAIN_PATH, orderRouter);
+server.use(MAIN_PATH, foodRouter);
+server.use(MAIN_PATH, categoryRouter);
 
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+

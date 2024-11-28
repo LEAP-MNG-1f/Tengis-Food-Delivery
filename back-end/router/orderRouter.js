@@ -1,9 +1,9 @@
 import express from "express";
 import { createOrder, getAllOrders } from "../controllers/orderControl.js";
 
-const userRouter = express.Router();
+const orderRouter = express.Router();
 
-userRouter.get("/users", getAllOrders);
-userRouter.post("/users", createOrder);
+orderRouter.get("/orders", getAllOrders);
+orderRouter.post("/orders", createOrder);
 
 export default orderRouter;
