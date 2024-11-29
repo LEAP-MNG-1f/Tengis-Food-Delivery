@@ -68,7 +68,7 @@ export default function OpenDilog() {
           <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
             <React.Fragment>
               <Button onClick={handleClickOpen}>
-                <img src="./eeg.png" alt="" />
+                <img src="./pizza.png" alt="" />
               </Button>
               <div className="w-[981px] h-[564px]">
                 <BootstrapDialog
@@ -92,7 +92,7 @@ export default function OpenDilog() {
                     <div className="flex ">
                       <Typography gutterBottom>
                         <img
-                          src="./eeg.png"
+                          src="./pizza.png"
                           alt=""
                           className="w-[500px] h-[500px]"
                         />
@@ -106,7 +106,7 @@ export default function OpenDilog() {
                           <h1 className="font-bold">Орц</h1>
                           <h1 className="bg-[#F6F6F6] text-gray-500 mt-5">
                             Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын
-                            үр{" "}
+                            үр
                           </h1>
                         </div>
                         <div className="mt-20">

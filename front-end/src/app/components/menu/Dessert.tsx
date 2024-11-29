@@ -51,7 +51,7 @@ export default function Dessert() {
         </Link>
       </div>
       <div>
-        <div className="flex gap-10 justify-center">
+        <div className="flex gap-10 mt-20 justify-center">
           <React.Fragment>
             <Button onClick={handleClickOpen}>
               <img src="./eeg.png" alt="" className="" />
@@ -104,22 +104,6 @@ export default function Dessert() {
                         >
                           Сагслах
                         </Button>
-                        {/* <div>
-                              {(["right"] as const).map((anchor) => (
-                                <React.Fragment key={anchor}>
-                                  <Button onClick={toggleDrawer(anchor, true)}>
-                                    {anchor}
-                                  </Button>
-                                  <Drawer
-                                    anchor={anchor}
-                                    open={state[anchor]}
-                                    onClose={toggleDrawer(anchor, false)}
-                                  >
-                                    {list(anchor)}
-                                  </Drawer>
-                                </React.Fragment>
-                              ))}
-                            </div> */}
                       </div>
                     </div>
                   </div>
