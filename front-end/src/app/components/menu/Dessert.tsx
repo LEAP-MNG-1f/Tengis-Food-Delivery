@@ -51,7 +51,7 @@ export default function Dessert() {
         </Link>
       </div>
       <div>
-        <div className="flex gap-10 justify-center">
+        <div className="flex gap-10 justify-center mt-20">
           <React.Fragment>
             <Button onClick={handleClickOpen}>
               <img src="./eeg.png" alt="" className="" />

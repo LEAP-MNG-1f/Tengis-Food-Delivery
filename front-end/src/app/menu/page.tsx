@@ -11,7 +11,9 @@ export default function Menuu() {
       <div className="mt-20">
         <Menu />
       </div>
-      <Bottom />
+      <div className="mt-32">
+        <Bottom />
+      </div>
     </div>
   );
 }
