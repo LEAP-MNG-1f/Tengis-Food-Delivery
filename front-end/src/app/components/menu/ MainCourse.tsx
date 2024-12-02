@@ -8,7 +8,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
-
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -47,7 +46,6 @@ export default function MainCourse() {
 
       setState({ ...state, [anchor]: open });
     };
-
   return (
     <div>
       <div className="flex gap-5 justify-center mt-10 ">
