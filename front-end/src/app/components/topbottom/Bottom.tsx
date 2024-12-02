@@ -38,13 +38,13 @@ export default function Bottom() {
           <Link href={`/`}>
             <button>Холбоо барих</button>
           </Link>
-          <Link href={`/menu`}>
+          <Link href={`menu`}>
             <button>Хоолны цэс</button>
           </Link>
           <Link href={`/`}>
             <button>Үйлчилгээний нөхцөл</button>
           </Link>
-          <Link href={`/`}>
+          <Link href={`deliver`}>
             <button>Хүргэлтийн бүс</button>
           </Link>
           <Link href={`/`}>

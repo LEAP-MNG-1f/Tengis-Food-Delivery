@@ -2,19 +2,22 @@
 
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
+import React from "react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+} from "@mui/material";
 
 type Anchor = "right";
 
 export default function Top() {
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
     right: false,
   });
 
@@ -34,23 +37,18 @@ export default function Top() {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{
-        width: "600",
-      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <h1 className="font-bold text-center mt-5">Таны сагс</h1>
+      <List>
+        {["Таны сагс"].map((text) => (
+          <ListItem key={text}>
+            <ListItemButton>{text}</ListItemButton>
+          </ListItem>
+        ))}
+      </List>
       <Divider />
-      <div className="w-538px h-230px ">
-        <div className="flex">
-          <img src="./pizza.png" alt="" />
-          <div>
-            <h1>Main Pizza </h1>
-          </div>
-        </div>
-      </div>
     </Box>
   );
 
@@ -87,12 +85,12 @@ export default function Top() {
               Нүүр
             </button>
           </Link>
-          <Link href={`/menu`}>
+          <Link href={`menu`}>
             <button className="font-bold hover:text-green-400 mt-2">
               ХООЛНЫ ЦЭС
             </button>
           </Link>
-          <Link href={``}>
+          <Link href={`/deliver`}>
             <button className="font-bold hover:text-green-400 mt-2">
               ХҮРГЭЛТИЙН БҮС
             </button>
@@ -103,6 +101,7 @@ export default function Top() {
             <svg
               width="22"
               height="20"
+              className="mt-2"
               viewBox="0 0 22 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -116,21 +115,47 @@ export default function Top() {
                 fill="black"
               />
             </svg>
-
-            {(["right"] as const).map((anchor) => (
-              <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)} color="success">
-                  {anchor}
-                </Button>
+            <React.Fragment>
+              <ButtonGroup>
+                {(["right"] as const).map((anchor) => (
+                  <Button
+                    key={anchor}
+                    onClick={toggleDrawer(anchor, true)}
+                    color="success"
+                  >
+                    сагс
+                  </Button>
+                ))}
+              </ButtonGroup>
+              {(["right"] as const).map((anchor) => (
                 <Drawer
+                  key={anchor}
                   anchor={anchor}
                   open={state[anchor]}
                   onClose={toggleDrawer(anchor, false)}
                 >
                   {list(anchor)}
                 </Drawer>
-              </React.Fragment>
-            ))}
+              ))}
+            </React.Fragment>
+          </div>
+          <div className="flex gap-5 ml-10">
+            <svg
+              width="24"
+              height="24"
+              className="mt-2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5.54166C13.1841 5.54166 14.1528 6.51041 14.1528 7.69444C14.1528 8.87847 13.1841 9.84722 12 9.84722C10.816 9.84722 9.84725 8.87847 9.84725 7.69444C9.84725 6.51041 10.816 5.54166 12 5.54166ZM12 15.2292C14.9063 15.2292 18.2431 16.6177 18.4584 17.3819V18.4583H5.54169V17.3927C5.75697 16.6177 9.09378 15.2292 12 15.2292ZM12 3.38889C9.62121 3.38889 7.69447 5.31562 7.69447 7.69444C7.69447 10.0733 9.62121 12 12 12C14.3788 12 16.3056 10.0733 16.3056 7.69444C16.3056 5.31562 14.3788 3.38889 12 3.38889ZM12 13.0764C9.12607 13.0764 3.38892 14.5187 3.38892 17.3819V20.6111H20.6111V17.3819C20.6111 14.5187 14.874 13.0764 12 13.0764Z"
+                fill="black"
+              />
+            </svg>
+            <Link href={`/enter`}>
+              <button className="hover:text-green-500 mt-2">Хэрэглэгч</button>
+            </Link>
           </div>
         </div>
       </div>
