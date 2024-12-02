@@ -1,7 +1,8 @@
 "use client";
 import Menu from "../components/menu/Menu";
-import Top from "../components/topbottom/Top";
 import Bottom from "../components/topbottom/Bottom";
+import Top from "../components/topbottom/Top";
+
 
 export default function Menuu() {
   return (
@@ -10,9 +11,7 @@ export default function Menuu() {
       <div className="mt-20">
         <Menu />
       </div>
-      <div className="mt-20">
-        <Bottom />
-      </div>
+      <Bottom />
     </div>
   );
 }
