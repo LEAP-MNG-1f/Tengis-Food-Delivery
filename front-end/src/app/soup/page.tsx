@@ -8,7 +8,9 @@ export default function soupo() {
     <div>
       <Top />
       <Soup />
-      <Bottom />
+      <div className="mt-32">
+        <Bottom />
+      </div>
     </div>
   );
 }
