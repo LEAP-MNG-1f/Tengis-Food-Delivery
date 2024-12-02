@@ -1,13 +1,14 @@
 "use client";
-
-import Stack from "@mui/material/Stack";
 import Dessert from "../components/menu/Dessert";
-import Link from "next/link";
+import Top from "../components/topbottom/Top";
+import Bottom from "../components/topbottom/Bottom";
 
 export default function soupo() {
   return (
     <div>
+      <Top />
       <Dessert />
+      <Bottom />
     </div>
   );
 }
