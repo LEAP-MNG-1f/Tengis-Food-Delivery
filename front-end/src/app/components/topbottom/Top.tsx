@@ -129,7 +129,7 @@ export const Top = () => {
                 <div className="max-w-[586px] w-[586px] h-full">
                   <div className="flex flex-col justify-between h-full">
                     <div>
-                      <div className="flex justify-between py-[26px] px-6 items-center">
+                      <div className="flex justify-center py-[26px] px-6 items-center">
                         <button onClick={toggleDrawer(anchor, false)}></button>
                         <p className="font-Poppins text-xl font-black">
                           Таны сагс
