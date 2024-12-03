@@ -12,7 +12,6 @@ import Breakfast from "./Breakfast";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
-import { MinusIcon, PlusIcon } from "@/app/svg/Plus";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -210,19 +209,11 @@ export default function OpenDilog() {
                           </div>
                           <div className="mt-10 flex flex-col gap-5">
                             <h1 className="font-bold">Тоо</h1>
-
+                            import React from "react";
                             <Stack spacing={2}>
                               <Pagination
                                 count={10}
-                                renderItem={(item) => (
-                                  <PaginationItem
-                                    slots={{
-                                      previous: MinusIcon,
-                                      next: PlusIcon,
-                                    }}
-                                    {...item}
-                                  />
-                                )}
+                                renderItem={(item) => <PaginationItem />}
                               />
                             </Stack>
                             <Button
