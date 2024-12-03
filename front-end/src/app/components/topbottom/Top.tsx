@@ -2,11 +2,10 @@
 
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
-import React from "react";
+import React, { MouseEvent, KeyboardEvent, useState } from "react";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Badge from "@mui/material/Badge";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
 
 declare module "@mui/material/styles" {
   interface PaletteOptions {
@@ -32,12 +31,19 @@ export const Top = () => {
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) => (event: KeyboardEvent | MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as KeyboardEvent).key === "Tab" ||
+          (event as KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
       setState({ ...state, [anchor]: open });
     };
 
   return (
     <div className="flex justify-center">
-      <div className="flex items-center justify-between w-[1200]">
+      <div className="flex items-center justify-between w-[1200px]">
         <div className="flex justify-center gap-[600px]">
           <Stack direction="row" spacing={5} ml={5} mt={5}>
             <Link href={`/`}>
@@ -49,17 +55,11 @@ export const Top = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M9.85882 9.53921L5.65369 17.41C5.12892 18.3951 4.86597 19.4762 4.86597 20.5587C4.86597 21.6414 5.12892 22.7224
-         5.65369 23.7074L9.85882 31.5784C10.6339 33.0322 12.1497 33.9402 13.7992 33.9402H18.2658V31.7105H18.2644C17.4403 31.7105 
-          16.6824 31.2572 16.2948 30.5304L12.0913 22.6579C11.74 22.0017 11.5649 21.281 11.5649 20.5587C11.5649 19.8364 11.74 19.1158
-          12.0913 18.4597L16.2948 10.5873C16.6824 9.86028 17.4403 9.40709 18.2644 9.40709H18.2658V7.17725H13.7992C12.1497 7.17725 10.6339 8.08541 9.85882 9.53921Z"
+                  d="M9.85882 9.53921L5.65369 17.41C5.12892 18.3951 4.86597 19.4762 4.86597 20.5587C4.86597 21.6414 5.12892 22.7224 5.65369 23.7074L9.85882 31.5784C10.6339 33.0322 12.1497 33.9402 13.7992 33.9402H18.2658V31.7105H18.2644C17.4403 31.7105 16.6824 31.2572 16.2948 30.5304L12.0913 22.6579C11.74 22.0017 11.5649 21.281 11.5649 20.5587C11.5649 19.8364 11.74 19.1158 12.0913 18.4597L16.2948 10.5873C16.6824 9.86028 17.4403 9.40709 18.2644 9.40709H18.2658V7.17725H13.7992C12.1497 7.17725 10.6339 8.08541 9.85882 9.53921Z"
                   fill="black"
                 />
                 <path
-                  d="M35.3423 17.4101L31.1374 9.53927C30.3621 8.0853 28.8465 7.1773 27.197 7.1773H22.7302V9.40698H22.7318C23.5558 9.40698 
-         24.3137 9.86034 24.7012 10.5872L28.9047 18.4596C29.2562 19.1158 29.4309 19.8365 29.4309 20.5588C29.4309 21.2811 29.2562 22.0017 
-         28.9047 22.658L24.7012 30.5303C24.3137 31.2572 23.5558 31.7104 22.7318 31.7104H22.7302V33.9403H27.197C28.8465 33.9403 30.3621 
-           33.0323 31.1374 31.5783L35.3423 23.7075C35.8669 22.7224 36.13 21.6413 36.13 20.5588C36.13 19.4763 35.8669 18.3952 35.3423 17.4101Z"
+                  d="M35.3423 17.4101L31.1374 9.53927C30.3621 8.0853 28.8465 7.1773 27.197 7.1773H22.7302V9.40698H22.7318C23.5558 9.40698 24.3137 9.86034 24.7012 10.5872L28.9047 18.4596C29.2562 19.1158 29.4309 19.8365 29.4309 20.5588C29.4309 21.2811 29.2562 22.0017 28.9047 22.658L24.7012 30.5303C24.3137 31.2572 23.5558 31.7104 22.7318 31.7104H22.7302V33.9403H27.197C28.8465 33.9403 30.3621 33.0323 31.1374 31.5783L35.3423 23.7075C35.8669 22.7224 36.13 21.6413 36.13 20.5588C36.13 19.4763 35.8669 18.3952 35.3423 17.4101Z"
                   fill="black"
                 />
               </svg>
@@ -104,19 +104,14 @@ export const Top = () => {
                       badgeContent={21}
                     >
                       <svg
-                        width="22"
-                        height="20"
-                        className="mt-2"
-                        viewBox="0 0 22 20"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M21 7.48977H16.21L11.83 0.929766C11.64 0.649766 11.32 0.509766 11 0.509766C10.68 0.509766 10.36 0.649766 10.17
-                 0.939766L5.79 7.48977H1C0.45 7.48977 0 7.93977 0 8.48977C0 8.57977 0.00999996 8.66977 0.04 8.75977L2.58 18.0298C2.81 18.8698 
-                 3.58 19.4898 4.5 19.4898H17.5C18.42 19.4898 19.19 18.8698 19.43 18.0298L21.97 8.75977L22 8.48977C22 7.93977 21.55 7.48977 21 
-                  7.48977ZM11 3.28977L13.8 7.48977H8.2L11 3.28977ZM17.5 17.4898L4.51 17.4998L2.31 9.48977H19.7L17.5 17.4898ZM11 11.4898C9.9 11.4898 
-                  9 12.3898 9 13.4898C9 14.5898 9.9 15.4898 11 15.4898C12.1 15.4898 13 14.5898 13 13.4898C13 12.3898 12.1 11.4898 11 11.4898Z"
+                          d="M22 9.49001H17.21L12.83 2.93001C12.64 2.65001 12.32 2.51001 12 2.51001C11.68 2.51001 11.36 2.65001 11.17 2.94001L6.79 9.49001H2C1.45 9.49001 1 9.94001 1 10.49C1 10.58 1.01 10.67 1.04 10.76L3.58 20.03C3.81 20.87 4.58 21.49 5.5 21.49H18.5C19.42 21.49 20.19 20.87 20.43 20.03L22.97 10.76L23 10.49C23 9.94001 22.55 9.49001 22 9.49001ZM12 5.29001L14.8 9.49001H9.2L12 5.29001ZM18.5 19.49L5.51 19.5L3.31 11.49H20.7L18.5 19.49ZM12 13.49C10.9 13.49 10 14.39 10 15.49C10 16.59 10.9 17.49 12 17.49C13.1 17.49 14 16.59 14 15.49C14 14.39 13.1 13.49 12 13.49Z"
                           fill="black"
                         />
                       </svg>
@@ -133,25 +128,24 @@ export const Top = () => {
               >
                 <div className="max-w-[586px] w-[586px] h-full">
                   <div className="flex flex-col justify-between h-full">
-                    <div className="">
+                    <div>
                       <div className="flex justify-between py-[26px] px-6 items-center">
                         <button onClick={toggleDrawer(anchor, false)}></button>
                         <p className="font-Poppins text-xl font-black">
                           Таны сагс
                         </p>
-                        <div></div>
                       </div>
-                      <div className="2xl:h-[785px] xl:h-[600px] h-[840px] px-6 overflow-scroll scrollbar-none"></div>
+                      <div className="h-[840px] px-6 overflow-scroll scrollbar-none"></div>
                     </div>
                     <div className="grid grid-cols-2 items-center justify-between py-[10px] px-8 h-[172px] shadow-black shadow-2xl">
-                      <div className="">
+                      <div>
                         <p className="font-Poppins text-lg text-[#5E6166]">
                           Нийт төлөх дүн
                         </p>
                         <p className="text-lg font-bold">34,800₮</p>
                       </div>
-                      <Link href={"/enter"} className="w-full">
-                        <button className="w-full flex items-center justify-center bg-BrandGreen py-2 px-4 bg-green-500 flex-[1_0_0] rounded-[4px]">
+                      <Link href={`/enter`} className="w-full">
+                        <button className="w-full flex items-center justify-center bg-green-500 py-2 px-4 rounded-[4px]">
                           <p className="font-Poppins text-white">Захиалах</p>
                         </button>
                       </Link>
@@ -163,18 +157,19 @@ export const Top = () => {
           ))}
           <div className="flex gap-5 ml-10">
             <svg
-              width="24"
-              height="24"
-              className="mt-2"
-              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              className="mt-3"
+              viewBox="0 0 18 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 5.54166C13.1841 5.54166 14.1528 6.51041 14.1528 7.69444C14.1528 8.87847 13.1841 9.84722 12 9.84722C10.816 9.84722 9.84725 8.87847 9.84725 7.69444C9.84725 6.51041 10.816 5.54166 12 5.54166ZM12 15.2292C14.9063 15.2292 18.2431 16.6177 18.4584 17.3819V18.4583H5.54169V17.3927C5.75697 16.6177 9.09378 15.2292 12 15.2292ZM12 3.38889C9.62121 3.38889 7.69447 5.31562 7.69447 7.69444C7.69447 10.0733 9.62121 12 12 12C14.3788 12 16.3056 10.0733 16.3056 7.69444C16.3056 5.31562 14.3788 3.38889 12 3.38889ZM12 13.0764C9.12607 13.0764 3.38892 14.5187 3.38892 17.3819V20.6111H20.6111V17.3819C20.6111 14.5187 14.874 13.0764 12 13.0764Z"
+                d="M9 2.54166C10.184 2.54166 11.1528 3.51041 11.1528 4.69444C11.1528 5.87847 10.184 6.84722 9 6.84722C7.81597 6.84722 6.84722 5.87847 6.84722 4.69444C6.84722 3.51041 7.81597 2.54166 9 2.54166ZM9 12.2292C11.9062 12.2292 15.2431 13.6177 15.4583 14.3819V15.4583H2.54166V14.3927C2.75694 13.6177 6.09375 12.2292 9 12.2292ZM9 0.388885C6.62118 0.388885 4.69444 2.31562 4.69444 4.69444C4.69444 7.07326 6.62118 9 9 9C11.3788 9 13.3056 7.07326 13.3056 4.69444C13.3056 2.31562 11.3788 0.388885 9 0.388885ZM9 10.0764C6.12604 10.0764 0.388885 11.5187 0.388885 14.3819V17.6111H17.6111V14.3819C17.6111 11.5187 11.874 10.0764 9 10.0764Z"
                 fill="black"
               />
             </svg>
+
             <Link href={`/enter`}>
               <button className="hover:text-green-500 mt-2 font-bold">
                 Хэрэглэгч
