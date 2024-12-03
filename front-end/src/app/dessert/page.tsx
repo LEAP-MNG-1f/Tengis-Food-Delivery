@@ -1,7 +1,7 @@
 "use client";
 import Dessert from "../components/menu/Dessert";
-import Top from "../components/topbottom/Top";
 import Bottom from "../components/topbottom/Bottom";
+import { Top } from "../components/topbottom/Top";
 
 export default function soupo() {
   return (

@@ -1,20 +1,19 @@
- "use client";
-import * as React from 'react';
-import CardContent from '@mui/material/CardContent';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import Amtatan from "./Amtatan";
+"use client";
+import * as React from "react";
+import CardContent from "@mui/material/CardContent";
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
+  "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
   },
-  '& .MuiDialogActions-root': {
+  "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
   },
 }));
 
-export default function Open() {
+export default function Amtatan() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,8 +25,7 @@ export default function Open() {
 
   return (
     <div>
-      <div className="flex flex-col "></div>
-      <div className="flex flex-col mt-20">
+      <div className="flex flex-col mt-20 justify-center  ">
         <div className="flex justify-center   gap-2">
           <svg
             width="22"
@@ -42,35 +40,33 @@ export default function Open() {
               fill="#18BA51"
             />
           </svg>
-          <h1 className="font-bold text-[22px] w-[1039px] mr-32">
-             Салад ба зууш
-          </h1>
+          <h1 className="font-bold text-[22px] w-[1039px] mr-32"> Амттан</h1>
         </div>
         <div className="flex gap-10 justify-center">
           <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
-            <img src="./vegtbel.png" alt="" />
+            <img src="./cake.png" alt="" />
             <CardContent>
-              <h1 className="font-bold"> Чихэрлэг тахиа</h1>
+              <h1 className="font-bold"> Торт</h1>
               <div className="flex gap-3">
-                <h1 className="text-[#18BA51]">24,800₮</h1>
+                <h1 className="text-[#18BA51]">54,800₮</h1>
               </div>
             </CardContent>
           </div>
 
           <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
-            <img src="./nuhsh.png" alt="" />
+            <img src="./shake.png" alt="" />
             <CardContent>
-              <h1 className="font-bold"> Lunch</h1>
+              <h1 className="font-bold"> Oreo shake</h1>
               <div className="flex gap-3">
-                <h1 className="text-[#18BA51]">22,800₮</h1>
+                <h1 className="text-[#18BA51]">14,800₮</h1>
               </div>
             </CardContent>
           </div>
 
           <div className="flex flex-col  justify-center mt-10  w-[282px] h-[253px]">
-            <img src="./sendvich.png" alt="" />
+            <img src="./chocolate.png" alt="" />
             <CardContent>
-              <h1 className="font-bold"> Сэндвич</h1>
+              <h1 className="font-bold"> Chocolate </h1>
               <div className="flex gap-3">
                 <h1 className="text-[#18BA51]">14,800₮</h1>
               </div>
@@ -78,18 +74,15 @@ export default function Open() {
           </div>
 
           <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
-            <img src="./applepie.png" alt="" />
+            <img src="./yoghurt.png" alt="" />
             <CardContent>
-              <h1 className="font-bold text-[18px]">Apple pie</h1>
+              <h1 className="font-bold text-[18px]">Yoghurt </h1>
               <div className="flex gap-3">
-                <h1 className="text-[#18BA51]">34,800₮</h1>
+                <h1 className="text-[#18BA51]">14,800₮</h1>
               </div>
             </CardContent>
           </div>
         </div>
-      </div>
-      <div>
-        <Amtatan />
       </div>
     </div>
   );

@@ -35,24 +35,18 @@ export default function Bottom() {
           <Link href={`/`}>
             <button>Нүүр</button>
           </Link>
-          <Link href={`/`}>
-            <button>Холбоо барих</button>
-          </Link>
           <Link href={`menu`}>
             <button>Хоолны цэс</button>
-          </Link>
-          <Link href={`/`}>
-            <button>Үйлчилгээний нөхцөл</button>
           </Link>
           <Link href={`deliver`}>
             <button>Хүргэлтийн бүс</button>
           </Link>
-          <Link href={`/`}>
+          <Link href={`/admine`}>
             <button>Нууцлалын бодлого</button>
           </Link>
         </div>
         <div className="flex gap-5 mt-10">
-          <Link href={`https://www.facebook.com/`}>
+          <Link href={`https://www.facebook.com/share/v/opQZeWUTQx6DY2iB/`}>
             <button>
               <svg
                 width="39"

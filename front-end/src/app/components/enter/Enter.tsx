@@ -1,9 +1,8 @@
 "use client";
 import * as React from "react";
-import Option from "@mui/joy/Option";
+import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/joy/Box";
 import Input from "@mui/joy/Input";
-import Checkbox from "@mui/joy/Checkbox";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -18,15 +17,21 @@ export default function Enter() {
   return (
     <div className="flex justify-center flex-col pt-20 ">
       <div className="flex justify-center  mt-20 gap-20 ">
-        <div className="w-[432px] h-[100px] border border-gray-100 rounded-lg drop-shadow-xl">
-          <div className="ml-20 mt-3">
+        <div className="w-[432px] h-[100px] border border-gray-100 rounded-lg drop-shadow-xl flex">
+          <div className="mt-8 ml-6">
+            <Checkbox defaultChecked color="success" />
+          </div>
+          <div className="ml-10 mt-3">
             <h1 className="text-[#8B8E95] text-[14px]">Алхам 1</h1>
             <h1 className=" text-[20px]">Хаягийн мэдээлэл оруулах</h1>
             <h1 className="text-[#0468C8] text-[16px]">Хүлээгдэж байна</h1>
           </div>
         </div>
-        <div className="w-[432px] h-[100px] border border-gray-100 rounded-lg drop-shadow-xl">
-          <div className="ml-20 mt-3">
+        <div className="w-[432px] flex h-[100px] border border-gray-100 rounded-lg drop-shadow-xl">
+          <div className="mt-8 ml-6">
+            <Checkbox defaultChecked color="success" />
+          </div>
+          <div className="ml-10 mt-3">
             <h1 className="text-[#8B8E95] text-[14px]">Алхам 2</h1>
             <h1 className=" text-[20px]">Захиалга баталгаажуулах</h1>
             <h1 className="text-[#0468C8] text-[16px]">Хүлээгдэж байна</h1>
@@ -106,7 +111,7 @@ export default function Enter() {
                 variant="soft"
                 sx={{
                   width: 384,
-                  height: 112,
+                  height: 80,
                 }}
               />
             </button>

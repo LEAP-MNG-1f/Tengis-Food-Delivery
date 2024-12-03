@@ -1,6 +1,7 @@
 import Bottom from "@/app/components/topbottom/Bottom";
-import Top from "@/app/components/topbottom/Top";
+
 import Enter from "../components/enter/Enter";
+import { Top } from "../components/topbottom/Top";
 
 export default function Del() {
   return (

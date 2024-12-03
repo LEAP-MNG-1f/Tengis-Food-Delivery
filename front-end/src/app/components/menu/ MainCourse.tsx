@@ -100,7 +100,7 @@ export default function MainCourse() {
                       <div className="flex ">
                         <Typography gutterBottom>
                           <img
-                            src="./pizza.png"
+                            src="./eeg.png"
                             alt=""
                             className=" w-[500px] h-[500px]"
                           />
