@@ -1,7 +1,7 @@
 "use client";
 import MainCourse from "../components/menu/ MainCourse";
-import Top from "../components/topbottom/Top";
 import Bottom from "../components/topbottom/Bottom";
+import { Top } from "../components/topbottom/Top";
 
 export default function soupo() {
   return (

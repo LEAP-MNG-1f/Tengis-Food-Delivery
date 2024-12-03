@@ -54,7 +54,7 @@ export default function Dessert() {
         <div className="flex gap-10 justify-center mt-20">
           <React.Fragment>
             <Button onClick={handleClickOpen}>
-              <img src="./eeg.png" alt="" className="" />
+              <img src="./tsairmag.png" alt="" className="" />
             </Button>
             <div className="">
               <BootstrapDialog
@@ -78,7 +78,7 @@ export default function Dessert() {
                   <div className="flex w-[981px] h-[500px]">
                     <Typography gutterBottom>
                       <img
-                        src="./eeg.png"
+                        src="./tsairmag.png"
                         alt=""
                         className=" w-[500px] h-[500px]"
                       />

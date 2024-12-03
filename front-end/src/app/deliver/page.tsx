@@ -1,6 +1,7 @@
 import Delivery from "@/app/components/delivery/Delivery";
 import Bottom from "@/app/components/topbottom/Bottom";
-import Top from "@/app/components/topbottom/Top";
+import { Top } from "../components/topbottom/Top";
+
 
 export default function Del() {
   return (
