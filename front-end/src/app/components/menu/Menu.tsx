@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
@@ -10,8 +11,9 @@ import Link from "next/link";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import DialogContent from "@mui/material/DialogContent";
+import MEn from "./MEn";
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -55,18 +57,26 @@ export default function Menu() {
         </Link>
       </div>
       <div>
-        <div className="flex flex-col mt-20">
+        <div className="flex justify-center gap-10 mt-20">
           <div className="flex gap-10 justify-center">
             <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
               <React.Fragment>
                 <Button onClick={handleClickOpen}>
-                  <img src="./eeg.png" alt="" className="" />
+                  <img src="./eeg.png" alt="" />
                 </Button>
-                <div className="">
+                <div className="w-[981px]">
                   <BootstrapDialog
                     onClose={handleClose}
                     aria-labelledby="customized-dialog-title"
                     open={open}
+                    sx={{
+                      "& .MuiDialog-paper": {
+                        width: "981px",
+                        height: "500px",
+                        maxWidth: "981px",
+                        maxHeight: "500px",
+                      },
+                    }}
                   >
                     <IconButton
                       aria-label="close"
@@ -80,57 +90,47 @@ export default function Menu() {
                     >
                       <CloseIcon />
                     </IconButton>
-
-                    <div className="flex w-[981px] h-[500px]">
-                      <Typography gutterBottom>
-                        <img
-                          src="./eeg.png"
-                          alt=""
-                          className=" w-[500px] h-[500px]"
-                        />
-                      </Typography>
-                      <div className="flex flex-col mt-10 ml-5 w-[981px] h-[500px]">
-                        <div>
-                          <h1 className="font-bold text-[28px]">Main Pizza</h1>
-                          <h1 className="text-green-500">34,800₮</h1>
-                        </div>
-                        <div className="mt-5 w-[368px] h-[54px]">
-                          <h1 className="font-bold">Орц</h1>
-                          <h1 className="bg-[#F6F6F6] text-gray-500 mt-5">
-                            Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын
-                            үр
-                          </h1>
-                        </div>
-
-                        <div className="mt-20">
-                          <h1 className="font-bold">Тоо</h1>
-                          <Stack spacing={2}>
-                            <Pagination
-                              count={10}
-                              renderItem={(item) => (
-                                <PaginationItem
-                                  slots={{
-                                    previous: ArrowBackIcon,
-                                    next: ArrowForwardIcon,
-                                  }}
-                                  {...item}
-                                />
-                              )}
-                            />
-                          </Stack>
-                          <Button
-                            variant="contained"
-                            color="success"
-                            className="w-[368px] h-[48px]  text-white"
-                          >
-                            Сагслах
-                          </Button>
+                    <DialogContent dividers>
+                      <div className="flex">
+                        <Typography gutterBottom>
+                          <img
+                            src="./eeg.png"
+                            alt="Main Pizza"
+                            className="w-[500px] h-[500px] mx-auto"
+                          />
+                        </Typography>
+                        <div className="flex flex-col mt-10 ml-10 w-[385px] h-[385px]">
+                          <div>
+                            <h1 className="font-bold text-[28px]">
+                              Өглөөний хоол
+                            </h1>
+                            <h1 className="text-green-500 text-[24px]">
+                              14,800₮
+                            </h1>
+                          </div>
+                          <div className="mt-5 w-full">
+                            <h1 className="font-bold">Орц</h1>
+                            <h1 className="bg-[#F6F6F6] text-gray-500 mt-3 p-3 rounded">
+                              Өглөөний хоол
+                            </h1>
+                          </div>
+                          <div className="mt-10">
+                            <h1 className="font-bold">Тоо</h1>
+                            <Button
+                              variant="contained"
+                              color="success"
+                              className="w-full h-[48px] mt-4 text-white"
+                            >
+                              Сагслах
+                            </Button>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </DialogContent>
                   </BootstrapDialog>
                 </div>
               </React.Fragment>
+
               <CardContent>
                 <h1 className="font-bold"> Өглөөний хоол</h1>
                 <div className="flex gap-3">
@@ -139,9 +139,84 @@ export default function Menu() {
                 </div>
               </CardContent>
             </div>
-
+          </div>
+          <div className="flex gap-10 justify-center">
             <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
-              <img src="./tsairmag.png" alt="" />
+              <React.Fragment>
+                <Button onClick={handleClickOpen}>
+                  <img src="./tsairmag.png" alt="" />
+                </Button>
+                <div className="w-[981px]">
+                  <BootstrapDialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                    sx={{
+                      "& .MuiDialog-paper": {
+                        width: "981px",
+                        height: "500px",
+                        maxWidth: "981px",
+                        maxHeight: "500px",
+                      },
+                    }}
+                  >
+                    <IconButton
+                      aria-label="close"
+                      onClick={handleClose}
+                      sx={(theme) => ({
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                      })}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <DialogContent dividers>
+                      <div className="flex">
+                        <Typography gutterBottom>
+                          <img
+                            src="./tsairmag.png"
+                            className="w-[500px] h-[500px] mx-auto"
+                          />
+                        </Typography>
+                        <div className="flex flex-col mt-10 ml-10 w-[385px] h-[385px]">
+                          <div>
+                            <h1 className="font-bold text-[28px]">Зайрмаг</h1>
+                            <h1 className="text-green-500 text-[24px]">
+                              4,800₮
+                            </h1>
+                          </div>
+                          <div className="mt-5 w-full">
+                            <h1 className="font-bold">Орц</h1>
+                            <h1 className="bg-[#F6F6F6] text-gray-500 mt-3 p-3 rounded">
+                              Зайрмаг
+                            </h1>
+                          </div>
+                          <div className="mt-10 flex flex-col gap-5">
+                            <h1 className="font-bold">Тоо</h1>
+
+                            <Stack spacing={2}>
+                              <Pagination
+                                count={10}
+                                renderItem={(item) => <PaginationItem />}
+                              />
+                            </Stack>
+                            <Button
+                              variant="contained"
+                              color="success"
+                              className="w-full h-[48px]  text-white mt-10"
+                            >
+                              Сагслах
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </BootstrapDialog>
+                </div>
+              </React.Fragment>
+
               <CardContent>
                 <h1 className="font-bold"> Зайрмаг</h1>
                 <div className="flex gap-3">
@@ -150,9 +225,86 @@ export default function Menu() {
                 </div>
               </CardContent>
             </div>
+          </div>
+          <div className="flex gap-10 justify-center">
+            <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
+              <React.Fragment>
+                <Button onClick={handleClickOpen}>
+                  <img src="./cerail.png" alt="" />
+                </Button>
+                <div className="w-[981px]">
+                  <BootstrapDialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                    sx={{
+                      "& .MuiDialog-paper": {
+                        width: "981px",
+                        height: "500px",
+                        maxWidth: "981px",
+                        maxHeight: "500px",
+                      },
+                    }}
+                  >
+                    <IconButton
+                      aria-label="close"
+                      onClick={handleClose}
+                      sx={(theme) => ({
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                      })}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <DialogContent dividers>
+                      <div className="flex">
+                        <Typography gutterBottom>
+                          <img
+                            src="./cerail.png"
+                            className="w-[500px] h-[500px] mx-auto"
+                          />
+                        </Typography>
+                        <div className="flex flex-col mt-10 ml-10 w-[385px] h-[385px]">
+                          <div>
+                            <h1 className="font-bold text-[28px]">
+                              Өглөөний хоол
+                            </h1>
+                            <h1 className="text-green-500 text-[24px]">
+                              24,800₮
+                            </h1>
+                          </div>
+                          <div className="mt-5 w-full">
+                            <h1 className="font-bold">Орц</h1>
+                            <h1 className="bg-[#F6F6F6] text-gray-500 mt-3 p-3 rounded">
+                              Өглөөний хоол
+                            </h1>
+                          </div>
+                          <div className="mt-10 flex flex-col gap-5">
+                            <h1 className="font-bold">Тоо</h1>
 
-            <div className="flex flex-col justify-center mt-10  w-[282px] h-[253px]">
-              <img src="./cerail.png" alt="" />
+                            <Stack spacing={2}>
+                              <Pagination
+                                count={10}
+                                renderItem={(item) => <PaginationItem />}
+                              />
+                            </Stack>
+                            <Button
+                              variant="contained"
+                              color="success"
+                              className="w-full h-[48px]  text-white mt-10"
+                            >
+                              Сагслах
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </BootstrapDialog>
+                </div>
+              </React.Fragment>
+
               <CardContent>
                 <h1 className="font-bold"> Өглөөний хоол</h1>
                 <div className="flex gap-3">
@@ -161,10 +313,86 @@ export default function Menu() {
                 </div>
               </CardContent>
             </div>
-            <div className="flex flex-col justify-center mt-10 w-[282px] h-[253px]">
-              <img src="./salad.png" alt="" />
+          </div>
+          <div className="flex gap-10 justify-center">
+            <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
+              <React.Fragment>
+                <Button onClick={handleClickOpen}>
+                  <img src="./salad.png" alt="" />
+                </Button>
+                <div className="w-[981px]">
+                  <BootstrapDialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                    sx={{
+                      "& .MuiDialog-paper": {
+                        width: "981px",
+                        height: "500px",
+                        maxWidth: "981px",
+                        maxHeight: "500px",
+                      },
+                    }}
+                  >
+                    <IconButton
+                      aria-label="close"
+                      onClick={handleClose}
+                      sx={(theme) => ({
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                      })}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <DialogContent dividers>
+                      <div className="flex">
+                        <Typography gutterBottom>
+                          <img
+                            src="./salad.png"
+                            className="w-[500px] h-[500px] mx-auto"
+                          />
+                        </Typography>
+                        <div className="flex flex-col mt-10 ml-10 w-[385px] h-[385px]">
+                          <div>
+                            <h1 className="font-bold text-[28px]">Breakfast</h1>
+                            <h1 className="text-green-500 text-[24px]">
+                              24,800₮
+                            </h1>
+                          </div>
+                          <div className="mt-5 w-full">
+                            <h1 className="font-bold">Орц</h1>
+                            <h1 className="bg-[#F6F6F6] text-gray-500 mt-3 p-3 rounded">
+                              Breakfast
+                            </h1>
+                          </div>
+                          <div className="mt-10 flex flex-col gap-5">
+                            <h1 className="font-bold">Тоо</h1>
+
+                            <Stack spacing={2}>
+                              <Pagination
+                                count={10}
+                                renderItem={(item) => <PaginationItem />}
+                              />
+                            </Stack>
+                            <Button
+                              variant="contained"
+                              color="success"
+                              className="w-full h-[48px]  text-white mt-10"
+                            >
+                              Сагслах
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </BootstrapDialog>
+                </div>
+              </React.Fragment>
+
               <CardContent>
-                <h1 className="font-bold text-[18px]">Breakfast </h1>
+                <h1 className="font-bold"> Breakfast </h1>
                 <div className="flex gap-3">
                   <h1 className="text-[#18BA51]">24,800₮</h1>
                   <h1>26,800₮</h1>
@@ -172,92 +400,9 @@ export default function Menu() {
               </CardContent>
             </div>
           </div>
-          <div className="flex flex-col mt-10">
-            <div className="flex gap-10 justify-center">
-              <div className="flex flex-col justify-center  w-[282px] h-[253px]">
-                <img src="./pizza.png" alt="Main Pizza" />
-                <CardContent>
-                  <h1 className="font-bold">Main Pizza</h1>
-                  <div className="flex gap-3">
-                    <h1 className="text-[#18BA51]">34,800₮</h1>
-                  </div>
-                </CardContent>
-              </div>
-
-              <div className="flex flex-col justify-center  w-[282px] h-[253px]">
-                <img src="./meatpie.png" alt="Food tart" />
-                <CardContent>
-                  <h1 className="font-bold">Food tart</h1>
-                  <div className="flex gap-3">
-                    <h1 className="text-[#18BA51]">22,800₮</h1>
-                  </div>
-                </CardContent>
-              </div>
-
-              <div className="flex flex-col justify-center  w-[282px] h-[253px]">
-                <img src="./jemm.png" alt="Breakfast" />
-                <CardContent>
-                  <h1 className="font-bold">Өглөөний хоол</h1>
-                  <div className="flex gap-3">
-                    <h1 className="text-[#18BA51]">14,800₮</h1>
-                  </div>
-                </CardContent>
-              </div>
-
-              <div className="flex flex-col justify-center  w-[282px] h-[253px]">
-                <img src="./soup.png" alt="Soup" />
-                <CardContent>
-                  <h1 className="font-bold text-[18px]">Зутан шөл</h1>
-                  <div className="flex gap-3">
-                    <h1 className="text-[#18BA51]">17,800₮</h1>
-                  </div>
-                </CardContent>
-              </div>
-            </div>
-          </div>
         </div>
-        <div className="flex flex-col mt-10">
-          <div className="flex gap-10 justify-center">
-            <div className="flex flex-col  justify-center  w-[282px] h-[253px]">
-              <img src="./vegtbel.png" alt="" />
-              <CardContent>
-                <h1 className="font-bold"> Чихэрлэг тахиа</h1>
-                <div className="flex gap-3">
-                  <h1 className="text-[#18BA51]">24,800₮</h1>
-                </div>
-              </CardContent>
-            </div>
-
-            <div className="flex flex-col  justify-center w-[282px] h-[253px]">
-              <img src="./nuhsh.png" alt="" />
-              <CardContent>
-                <h1 className="font-bold"> Lunch</h1>
-                <div className="flex gap-3">
-                  <h1 className="text-[#18BA51]">22,800₮</h1>
-                </div>
-              </CardContent>
-            </div>
-
-            <div className="flex flex-col  justify-center  w-[282px] h-[253px]">
-              <img src="./sendvich.png" alt="" />
-              <CardContent>
-                <h1 className="font-bold"> Сэндвич</h1>
-                <div className="flex gap-3">
-                  <h1 className="text-[#18BA51]">14,800₮</h1>
-                </div>
-              </CardContent>
-            </div>
-
-            <div className="flex flex-col  justify-center w-[282px] h-[253px]">
-              <img src="./applepie.png" alt="" />
-              <CardContent>
-                <h1 className="font-bold text-[18px]">Apple pie</h1>
-                <div className="flex gap-3">
-                  <h1 className="text-[#18BA51]">34,800₮</h1>
-                </div>
-              </CardContent>
-            </div>
-          </div>
+        <div>
+          <MEn />
         </div>
       </div>
     </div>
