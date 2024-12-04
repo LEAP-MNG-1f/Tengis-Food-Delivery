@@ -5,9 +5,9 @@ export default function Delivery() {
     <div className="flex justify-center flex-col pt-20 bg-[#FFF]">
       <div className="flex justify-center">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1234.6266760892133!2d106.91588853673953!3d47.91435736922469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96936d2cf04775%3A0xdae2d055a1ea3288!2sMbook!5e0!3m2!1smn!2smn!4v1733282134415!5m2!1smn!2smn"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d85610.8674246713!2d106.90267912824336!3d47.89111183093929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1smn!2smn!4v1733283749759!5m2!1smn!2smn"
           width="1200"
-          height="616"
+          height="612"
           loading="lazy"
         ></iframe>
       </div>
