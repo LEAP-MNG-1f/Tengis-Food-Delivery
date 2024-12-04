@@ -40,6 +40,7 @@ export const Top = () => {
       }
       setState({ ...state, [anchor]: open });
     };
+    
 
   return (
     <div className="flex justify-center">
@@ -101,7 +102,7 @@ export const Top = () => {
                           color: "white",
                         },
                       }}
-                      badgeContent={21}
+                      badgeContent={null}
                     >
                       <svg
                         width="24"
@@ -142,7 +143,6 @@ export const Top = () => {
                         <p className="font-Poppins text-lg text-[#5E6166]">
                           Нийт төлөх дүн
                         </p>
-                        <p className="text-lg font-bold">34,800₮</p>
                       </div>
                       <Link href={`/enter`} className="w-full">
                         <button className="w-full flex items-center justify-center bg-green-500 py-2 px-4 rounded-[4px]">

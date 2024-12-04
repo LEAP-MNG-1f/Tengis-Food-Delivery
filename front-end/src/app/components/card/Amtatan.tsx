@@ -8,8 +8,8 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
+import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -101,19 +101,12 @@ export default function Amtatan() {
                           <div className="mt-5 w-full">
                             <h1 className="font-bold">Орц</h1>
                             <h1 className="bg-[#F6F6F6] text-gray-500 mt-3 p-3 rounded">
-                              Хулуу, төмс, лууван, сонгино, цөцгийн тос, самрын
-                              үр
+                              Торт
                             </h1>
                           </div>
                           <div className="mt-10 flex flex-col gap-5">
                             <h1 className="font-bold">Тоо</h1>
 
-                            <Stack spacing={2}>
-                              <Pagination
-                                count={10}
-                                renderItem={(item) => <PaginationItem />}
-                              />
-                            </Stack>
                             <Button
                               variant="contained"
                               color="success"
@@ -368,11 +361,8 @@ export default function Amtatan() {
                           <div className="mt-10 flex flex-col gap-5">
                             <h1 className="font-bold">Тоо</h1>
 
-                            <Stack spacing={2}>
-                              <Pagination
-                                count={10}
-                                renderItem={(item) => <PaginationItem />}
-                              />
+                            <Stack spacing={4}>
+                              <Pagination count={100} shape="rounded" />
                             </Stack>
                             <Button
                               variant="contained"
