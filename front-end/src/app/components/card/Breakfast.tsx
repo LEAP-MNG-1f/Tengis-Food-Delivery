@@ -379,11 +379,8 @@ export default function Breakfast() {
                             <div className="mt-10 flex flex-col gap-5">
                               <h1 className="font-bold">Тоо</h1>
 
-                              <Stack spacing={2}>
-                                <Pagination
-                                  count={10}
-                                  renderItem={(item) => <PaginationItem />}
-                                />
+                              <Stack spacing={4}>
+                                <Pagination count={100} shape="rounded" />
                               </Stack>
                               <Button
                                 variant="contained"
