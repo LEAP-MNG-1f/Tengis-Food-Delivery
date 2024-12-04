@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
@@ -10,6 +11,7 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
 import DialogContent from "@mui/material/DialogContent";
+
 import MEn from "./MEn";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -378,9 +380,6 @@ export default function MA() {
             </CardContent>
           </div>
         </div>
-      </div>
-      <div>
-        <MEn />
       </div>
     </div>
   );
