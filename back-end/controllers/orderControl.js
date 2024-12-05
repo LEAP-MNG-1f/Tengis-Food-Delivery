@@ -5,11 +5,12 @@ const createOrder = async (req, res) => {
     const result = await Order.create({
       userID: "6746aa382a034160d556f851",
       orderNumber: 1,
-      foodIDs: "6746aa382a034160d556f853",
-      totalPrice: "215000",
+      foodIDs: ["6746aa382a034160d556f853"],
+      totalPrice: 215000,
       district: "BGD",
       Khoroo: "7",
       Apartment: "A17",
+      role: "active",
     });
 
     res.json({
@@ -27,11 +28,13 @@ const createOrder = async (req, res) => {
 
 const getAllOrders = async (req, res) => {
   try {
-    const result = await Order.find();
+    const orders = await Order.find()
+      .populate("userID", "name email")
+      .select("orderNumber foodIDs totalPrice district Khoroo Apartment");
 
-    res.json({
+    res.status(200).json({
       success: true,
-      data: result,
+      data: orders,
     });
   } catch (error) {
     res.status(500).json({
