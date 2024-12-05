@@ -1,11 +1,11 @@
 import { Category } from "../model/category.js";
 
-const createCategory = async (req, res) => {
+const createCategorys = async (req, res) => {
   try {
     const result = await Category.create({
-      _Id: "6746aa382a034160d556f851",
+      userID: "6746aa382a034160d556f851",
       name: "Tengis",
-      foodID: "6746aa382a034160d556f853",
+      foodIDs: ["6746aa382a034160d556c853"],
     });
 
     res.json({
@@ -21,21 +21,23 @@ const createCategory = async (req, res) => {
   }
 };
 
-const getAllCategories = async (req, res) => {
+const getAllCategorys = async (req, res) => {
   try {
-    const result = await Category.find();
+    const categorys = await Category.find()
+      .populate("userID", "name email")
+      .select("name foodIDs");
 
-    res.json({
+    res.status(200).json({
       success: true,
-      data: result,
+      data: categorys,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Error fetching categories",
+      message: "Error fetching categorys",
       error: error.message,
     });
   }
 };
 
-export { createCategory, getAllCategories };
+export { createCategorys, getAllCategorys };

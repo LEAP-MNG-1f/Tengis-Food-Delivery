@@ -3,9 +3,9 @@ import { Food } from "../model/food.js";
 const createFood = async (req, res) => {
   try {
     const result = await Food.create({
-      _id: "6746aa382a034160d556f851",
-      name: "Tengis",
-      image: "pizza.jpg",
+      userID: "6746aa382a034160d556f654",
+      name: "Pizza",
+      image: "./pizza.png",
       price: 26500,
     });
 
@@ -24,11 +24,10 @@ const createFood = async (req, res) => {
 
 const getAllFoods = async (req, res) => {
   try {
-    const result = await Food.find();
-
-    res.json({
+    const foods = await Food.find().populate("userID", "name email");
+    res.status(200).json({
       success: true,
-      data: result,
+      data: foods,
     });
   } catch (error) {
     res.status(500).json({
