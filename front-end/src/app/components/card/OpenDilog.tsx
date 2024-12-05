@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
@@ -12,6 +12,7 @@ import Breakfast from "./Breakfast";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
+import React, { useState } from "react";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -30,6 +31,15 @@ export default function OpenDilog() {
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const [count, setCount] = useState<number>(0);
+
+  const increment = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decrement = () => {
+    setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
   return (
@@ -72,7 +82,7 @@ export default function OpenDilog() {
             <div className="flex flex-col  justify-center mt-10 w-[282px] h-[253px]">
               <React.Fragment>
                 <Button onClick={handleClickOpen}>
-                  <img src="./eeg.png" alt="" />
+                  <img src="./eeg.png" alt="" className="" />
                 </Button>
                 <div className="w-[981px]">
                   <BootstrapDialog
@@ -126,6 +136,23 @@ export default function OpenDilog() {
                           </div>
                           <div className="mt-10">
                             <h1 className="font-bold">Тоо</h1>
+                            <div className="flex items-center">
+                              <button
+                                className="px-4 py-2 text-lg font-medium bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors duration-200"
+                                onClick={decrement}
+                              >
+                                −
+                              </button>
+                              <span className="w-16 text-center py-2 font-semibold text-gray-700 bg-white">
+                                {count}
+                              </span>
+                              <button
+                                className="px-4 py-2 text-lg font-medium bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors duration-200"
+                                onClick={increment}
+                              >
+                                +
+                              </button>
+                            </div>
                             <Button
                               variant="contained"
                               color="success"
@@ -380,9 +407,23 @@ export default function OpenDilog() {
                           <div className="mt-10 flex flex-col gap-5">
                             <h1 className="font-bold">Тоо</h1>
 
-                            <Stack spacing={4}>
-                              <Pagination count={100} shape="rounded" />
-                            </Stack>
+                            <div className="flex items-center">
+                              <button
+                                className="px-4 py-2 text-lg font-medium bg-gray-50 hover:bg-green-500 hover:text-white rounded-xl text-gray-600 transition-colors duration-200"
+                                onClick={decrement}
+                              >
+                                −
+                              </button>
+                              <span className="w-16 text-center py-2 font-semibold text-gray-700 bg-white">
+                                {count}
+                              </span>
+                              <button
+                                className="px-4 py-2 text-lg font-medium bg-gray-50 hover:bg-green-500 hover:text-white rounded-xl text-gray-600 transition-colors duration-200"
+                                onClick={increment}
+                              >
+                                +
+                              </button>
+                            </div>
                             <Button
                               variant="contained"
                               color="success"

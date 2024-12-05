@@ -25,7 +25,7 @@ export default function Dessert() {
   };
   return (
     <div>
-      <div className="flex gap-5 justify-center mt-10 ">
+      <div className="flex gap-5 justify-center mt-20 ">
         <Link href={`/menu`}>
           <button className="w-[280px] h-[43px] font-bold border border-gray-200 rounded-xl hover:bg-green-600 hover:text-white hover:rounded-xl">
             Breakfast
